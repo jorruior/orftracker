@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Environments
+.env
+.venv/
+
+# FAISS indices (can be large; regenerate from PubMed)
+indices/
+results/faiss_indices/
+
+# Output summaries (generated, not tracked)
+results/
+
+# HuggingFace model cache (downloaded at runtime)
+.cache/
+
+# Editor
+.vscode/
+.idea/
+*.swp

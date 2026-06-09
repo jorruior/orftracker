@@ -1,0 +1,28 @@
+# orftracker conda environment — Jorge Ruiz-Orera
+# conda-forge packages installed via mamba; PyPI-only packages via pip.
+#
+# Recreate manually:
+#   mamba env create -f environment.yml
+#   conda activate orftracker
+
+name: orftracker
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.11
+  - biopython>=1.83
+  - numpy>=1.26
+  - requests>=2.31
+  - pip>=24.0
+  - pip:
+    - langchain>=1.0.0
+    - langchain-classic>=1.0.0
+    - langchain-community>=0.3.0
+    - langchain-ollama>=0.2.0
+    - langchain-core>=1.0.0
+    - langchain-text-splitters>=0.3.0
+    - faiss-cpu>=1.7.4
+    - sentence-transformers>=2.7.0

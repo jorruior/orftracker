@@ -1,0 +1,23 @@
+# Microproteins / uORF-encoded peptides of interest
+# One entry per line; lines starting with # are ignored
+
+MOTS-c
+humanin
+SHLP2
+SHLP6
+BRAWNIN
+DWORF
+myoregulin
+sarcolipin
+MLN
+PIGBOS1
+stathmin-2
+GPCPD1
+NoBody
+CIP2A-BP
+minion
+MINO
+MTLN
+SCN1A-uORF
+ATF4-uORF
+SHMOORF1

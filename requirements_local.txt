@@ -1,0 +1,22 @@
+# orftracker -- fully local stack, zero API keys
+# Install in your mamba env:
+#   pip install -r requirements_local.txt
+
+# LangChain core
+langchain>=0.2.0
+langchain-community>=0.2.0
+
+# Ollama integration (local LLM)
+langchain-ollama>=0.2.0        # preferred
+# fallback: langchain-community already bundles Ollama support
+
+# Vector store
+faiss-cpu>=1.7.4               # or faiss-gpu if you have a GPU
+
+# Local embeddings -- no API key
+sentence-transformers>=2.7.0
+
+# PubMed access
+biopython>=1.83
+
+# stdlib only -- no extra packages needed for urllib / json
