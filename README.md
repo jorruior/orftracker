@@ -111,6 +111,36 @@ python orftracker.py "humanin"
 
 ## Usage
 
+### Catalog mode — `--search_microproteins` and `--search_uorfs`
+
+Broad PubMed search for microprotein or uORF papers. For each abstract, the LLM extracts every specific entity that is the subject of study and summarises its function. Results are merged across papers and written to a TSV with one row per entity, sorted by number of papers.
+
+Extraction runs at temperature=0 and uses strict prompts that reject generic class labels (e.g. "microprotein", "uORF") — only named, characterised entities are kept.
+
+```bash
+# microprotein catalog
+python orftracker.py --search_microproteins
+python orftracker.py --search_microproteins --max-pubmed 300 --output catalog.tsv
+python orftracker.py --search_microproteins --model llama3.1:8b --max-pubmed 200
+
+# uORF catalog
+python orftracker.py --search_uorfs
+python orftracker.py --search_uorfs --max-pubmed 300 --output uorf_catalog.tsv
+python orftracker.py --search_uorfs --model llama3.1:8b --max-pubmed 200
+```
+
+Output columns (both modes):
+
+| Column | Description |
+|--------|-------------|
+| `name` | Entity name as found in the abstract |
+| `function` | One-sentence summary of function |
+| `paper_count` | Number of papers mentioning this entity |
+| `pmids` | Semicolon-separated PMIDs |
+| `urls` | Semicolon-separated PubMed links |
+
+Each abstract costs one LLM call (~2–5 s depending on model). Scale `--max-pubmed` accordingly.
+
 ### Single query
 
 ```bash
@@ -131,8 +161,10 @@ python orftracker.py --list-models
 | `--save-index` | — | Save FAISS index to directory |
 | `--load-index` | — | Load FAISS index, skip PubMed |
 | `--email` | user@mdc-berlin.de | NCBI Entrez email |
-| `--output` | stdout | Write markdown summary to file |
+| `--output` | stdout / catalog.tsv | Write output to file |
 | `--list-models` | — | List local Ollama models and exit |
+| `--search_microproteins` | — | Catalog mode: extract named microproteins from PubMed |
+| `--search_uorfs` | — | Catalog mode: extract named uORFs from PubMed |
 
 ### Batch mode
 
