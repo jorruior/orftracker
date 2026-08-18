@@ -44,12 +44,6 @@ curl -fsSL https://ollama.com/install.sh | OLLAMA_INSTALL_DIR=$HOME/.local sh
 export PATH="$HOME/.local/bin:$PATH"   # add to ~/.bashrc
 ```
 
-If home quota is tight, redirect model storage to scratch:
-
-```bash
-export OLLAMA_MODELS=/fast/AG_Huebner/$USER/ollama_models   # add to ~/.bashrc
-```
-
 ### 2. Pull a model
 
 ```bash
